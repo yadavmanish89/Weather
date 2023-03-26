@@ -24,6 +24,7 @@ class SearchDataManager {
         }
         guard let dataModel = JsonParser.getModelFor(data: data, model: SearchModel.self) else {
             return .failure(.parsingError)
+            // some changes
         }
         return .success(dataModel)
     }
