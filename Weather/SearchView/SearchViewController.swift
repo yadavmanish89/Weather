@@ -21,10 +21,6 @@ class SearchViewController: UIViewController {
         bindViewModel()
         searhCity()
         self.cityTableView.tableHeaderView = self.searchController.searchBar
-        LocationManagerService.shared.getLocation {latitude, logitude in
-            print("lat long\(latitude)")
-
-        }
     }
     private func bindViewModel() {
         self.viewModel.updateUI = {

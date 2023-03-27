@@ -10,9 +10,25 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var temperatureLabel: UILabel!
+    var viewModel = HomeViewModel(searchDataManager: SearchDataManager(network: Network()))
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.bindViewModel()
+        self.fetchWeather()
     }
+    
+    func fetchWeather() {
+        self.viewModel.latLongRequest { [weak self] request in
+            self?.viewModel.fetchWeather(latLongRequest: request)
+        }
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.updateUI = {
+            DispatchQueue.main.async { [weak self] in
+                self?.temperatureLabel.text = "\(self?.viewModel.dataModel?.main.temp ?? 0)"
+            }
+        }
+    }
+
 }

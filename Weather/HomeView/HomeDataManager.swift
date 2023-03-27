@@ -13,7 +13,6 @@ class HomeDataManager {
         self.network = network
     }
     func fetchWeather(latLongRequest: RequestProtocol) async throws -> Result<SearchModel, NetworkError> {
-         
         guard let url = latLongRequest.url,
               let data = try await network.request(url: url) else {
             return .failure(.invalidResponse)

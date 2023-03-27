@@ -17,7 +17,7 @@ class SearchViewModel {
         self.searchDataManager = searchDataManager
     }
     func searchRequest(searchString: String) -> RequestManager {
-        return RequestManager.search(searchString)
+        return RequestManager.fetchCity(searchString)
     }
     func search(searchRequest: RequestManager) {
         Task {

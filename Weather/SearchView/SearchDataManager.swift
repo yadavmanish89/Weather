@@ -14,14 +14,21 @@ class SearchDataManager {
     }
     func search(request: RequestProtocol) async throws -> Result<SearchModel, NetworkError> {
          
-        guard let url = request.url,
-              let data = try await network.request(url: url) else {
-            return .failure(.invalidResponse)
+        guard let url = request.url else {
+            return .failure(.invalidURL)
         }
-        guard let dataModel = JsonParser.getModelFor(data: data, model: SearchModel.self) else {
+        do {
+            if let data = try await network.request(url: url) {
+                guard let dataModel = JsonParser.getModelFor(data: data, model: SearchModel.self) else {
+                    return .failure(.parsingError)
+                }
+                return .success(dataModel)
+            }
+        } catch (let err) {
+            debugPrint("err:\(err)")
             return .failure(.parsingError)
         }
-        return .success(dataModel)
+        return .failure(.parsingError)
     }
     private func getSearchedRecords() -> [SearchModel] {
         

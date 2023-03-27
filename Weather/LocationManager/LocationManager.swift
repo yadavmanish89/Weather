@@ -7,15 +7,15 @@
 
 import Foundation
 import CoreLocation
+import Combine
 
-typealias LocationCompletion = ((String, String) -> ())
-class LocationManagerService: NSObject, CLLocationManagerDelegate {
-
+class LocationManager: NSObject, CLLocationManagerDelegate {
+    var locationPublisher = PassthroughSubject<(Double, Double), Error>()
     private override init() {
         super.init()
     }
-    static let shared = LocationManagerService()
-    var locationCompletion: LocationCompletion?
+    static let shared = LocationManager()
+
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -23,8 +23,7 @@ class LocationManagerService: NSObject, CLLocationManagerDelegate {
         return manager
     }()
 
-    func getLocation(completion: @escaping LocationCompletion) {
-        locationCompletion = completion
+    func getLocation() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -50,7 +49,7 @@ class LocationManagerService: NSObject, CLLocationManagerDelegate {
         if let location = locations.last {
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
-            self.locationCompletion?("\(longitude)","\(latitude)")
+            self.locationPublisher.send((latitude, longitude))
             debugPrint("\(#line):Location didUpdateLocations:\(latitude), \(longitude)")
         }
     }
