@@ -31,6 +31,7 @@
 		4250B76F29CFE6500017808B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250B76E29CFE6500017808B /* Constants.swift */; };
 		4250B77429D11FDF0017808B /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250B77329D11FDF0017808B /* HomeDataManager.swift */; };
 		4250B77629D1471E0017808B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250B77529D1471E0017808B /* LocationManager.swift */; };
+		4250B77829D21BE30017808B /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250B77729D21BE30017808B /* RootNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4250B76E29CFE6500017808B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4250B77329D11FDF0017808B /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		4250B77529D1471E0017808B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4250B77729D21BE30017808B /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				4250B72429CE67840017808B /* AppDelegate.swift */,
 				4250B72629CE67840017808B /* SceneDelegate.swift */,
+				4250B77729D21BE30017808B /* RootNavigationController.swift */,
 				4250B72A29CE67840017808B /* Main.storyboard */,
 				4250B72D29CE67850017808B /* Assets.xcassets */,
 				4250B72F29CE67850017808B /* LaunchScreen.storyboard */,
@@ -244,6 +247,7 @@
 				4250B75429CE89600017808B /* SearchModel.swift in Sources */,
 				4250B76F29CFE6500017808B /* Constants.swift in Sources */,
 				4250B75F29CFD63E0017808B /* HomeViewModel.swift in Sources */,
+				4250B77829D21BE30017808B /* RootNavigationController.swift in Sources */,
 				4250B75D29CFD6040017808B /* HomeViewController.swift in Sources */,
 				4250B77629D1471E0017808B /* LocationManager.swift in Sources */,
 				4250B75029CE89330017808B /* SearchViewController.swift in Sources */,
