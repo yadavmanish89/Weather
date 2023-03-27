@@ -8,5 +8,11 @@
 import Foundation
 
 class HomeViewModel {
+    func getUserLocation() {
+        
+    }
     
+    func fetchWeather() {
+        
+    }
 }
